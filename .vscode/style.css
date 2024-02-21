@@ -1,0 +1,184 @@
+
+/* atalho pra comentar: ctrl + ; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* root é raiz. No caso pega todo o codigo css. E tambem serve para criar variáveis*/
+:root {
+  --text-color: white; /* --text-color foi o nome escolhido para a variavel e branco a cor. Pra dizer que essa variavel aplica a cor branco a todos os textos. */
+  --bg-url: url(assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --hightlight-color: rgba(0, 0, 0, 0.4);
+  --switch-bg-url: url(assets/moon-stars.svg)
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.05);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --hightlight-color: rgba(0, 0, 0, 0.06);
+  --switch-bg-url: url(assets/sun.svg)
+}
+
+body {
+  background-image: var(--bg-url);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+
+  /*
+  estilização reduzida
+  background: color image repeat position/size
+    
+    background: url(./assets/bg-mobile.jpg) no-repeat
+    top center/cover;
+  */
+}
+
+/* O * é pra pegar tudo que ta no body - *: seletor universal */
+body * {
+  color: var(--text-color);
+  font-family: "Inter", sans-serif;
+}
+
+#container {
+  width: 360px;
+  margin: 56px auto 0px;
+  padding: 0 24px; /* 0 cima e embaixo, 24 nas laterais */
+}
+
+/* switch */
+#switch {
+  position: relative; /* Relativa ao switch buttom absolute*/
+  width: 64px;
+
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  /* Alinhamento de elementos: */
+  position: absolute; /* controlando sobreposição dos itens */
+  top: 50%; /* no topo */
+  left: 0; /* a esquerda */
+  z-index: 1; /* na camada 1 */
+  transform: translateY(-50%); /* transformando e deixando no eixo 'y' em -50%*/
+}
+
+.light #switch button {
+  right: 0;
+  left: initial; /* volta para a esquerda quando passa pro modo dark*/
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* profile */
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/* links */
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+ul li a {
+  /*se põe o 'a' pra pegar apenas as coisas da li e dentro do link mesmo*/
+  display: flex; /* poe itens lado a lado */
+  justify-content: center; /* alinha os itens no meio da li */
+  align-items: center; /* alinha os itens no meio da linha */
+
+  padding: 16px 24px; /* espaço entre o conteúdo do elemento e sua borda */
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px); /* blur é embaçar */
+  -webkit-backdrop-filter: blur(4px); /* webkit: Prefixo para alguns navegadores acessarem*/
+
+  text-decoration: none; /* deixa o texto sem underline */
+  font-weight: 500; /* peso da fonte, ou no caso a grossuras das letras. 500 mesma coisa que o 'bold'*/
+
+  transition: background 0.2s;
+}
+
+/* pseudo-selector é para quando passar o mouse em cima, os elementos terem outra reação*/
+ul li a:hover {
+  background-color: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+#social-links {
+  display: flex;
+  justify-content: center;
+  
+  padding: 24px 0;
+
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+#social-links a:hover {
+  background-color: var(--hightlight-color);
+  border-radius: 50%;
+}
+
+footer {
+  text-align: center;
+  padding: 14px 0;
+}
+
+#pag {
+  font-weight: light;
+  text-align: center;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+
