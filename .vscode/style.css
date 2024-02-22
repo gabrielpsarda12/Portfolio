@@ -58,6 +58,22 @@ body * {
   padding: 0 24px; /* 0 cima e embaixo, 24 nas laterais */
 }
 
+/* profile */
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
 /* switch */
 #switch {
   position: relative; /* Relativa ao switch buttom absolute*/
@@ -83,12 +99,12 @@ body * {
   animation: slide-back 0.2s;
 }
 
-#switch button:hover {
-  outline: 8px solid var(--hightlight-color);
-}
-
 .light #switch button {
   animation: slide-go 0.2s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--hightlight-color);
 }
 
 #switch span {
@@ -100,22 +116,6 @@ body * {
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 9999px;
-}
-
-/* profile */
-#profile {
-  text-align: center;
-  padding: 24px;
-}
-
-#profile img {
-  width: 112px;
-}
-
-#profile p {
-  font-weight: 500;
-  line-height: 24px;
-  margin-top: 8px;
 }
 
 /* links */
@@ -179,7 +179,8 @@ ul li a:hover {
 
 footer {
   text-align: center;
-  padding: 14px 0;
+  padding: 24px 0;
+  font-size: 14px;
 }
 
 #pag {
