@@ -79,11 +79,16 @@ body * {
   left: 0; /* a esquerda */
   z-index: 1; /* na camada 1 */
   transform: translateY(-50%); /* transformando e deixando no eixo 'y' em -50%*/
+
+  animation: slide-back 0.2s;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--hightlight-color);
 }
 
 .light #switch button {
-  right: 0;
-  left: initial; /* volta para a esquerda quando passa pro modo dark*/
+  animation: slide-go 0.2s forwards;
 }
 
 #switch span {
@@ -194,5 +199,24 @@ footer {
 
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* animação */
+@keyframes slide-go { /*código para fazer o botão de mudar modo desliza levemente para direitar*/
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back { /*código para fazer o botão de mudar modo deslizar para esquerda*/
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
